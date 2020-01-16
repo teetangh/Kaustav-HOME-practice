@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "array": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp"
+    },
+    "python.pythonPath": "C:\\Program Files (x86)\\Python38-32\\python.exe",
+    "python.linting.enabled": true
+}
