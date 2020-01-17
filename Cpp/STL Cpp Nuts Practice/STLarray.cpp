@@ -10,7 +10,8 @@
 //    e. data() // gives access to the underlying array
 
 #include <iostream>
-#include <array>
+// #include <array>
+#include <bits/stdc++.h>
 using namespace std;
 
 int main()
