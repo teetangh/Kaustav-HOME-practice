@@ -62,7 +62,8 @@ int main()
         switch (choice)
         {
         case 1:
-            maxHeapify(arr, n, 1);
+            for (int i = 1; i <= n; i++)
+                maxHeapify(arr, n, i);
             break;
 
         case 2:
