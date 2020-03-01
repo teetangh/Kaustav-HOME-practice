@@ -32,7 +32,7 @@ void heapSort(int *arr, int n)
         maxHeapify(arr, n, i);
     for (int i = n; i >= 1; i--)
     {
-        swap(&arr[1], arr[i]);
+        swap(&arr[1], &arr[i]);
         maxHeapify(arr, n, 1);
     }
 }
