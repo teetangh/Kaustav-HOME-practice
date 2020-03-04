@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-struct LinkedList
+struct node
 {
     int data;
-    LinkedList *next;
+    node *next;
 };
 
-void printLinekdList(LinkedList *root)
+void printLinekdList(node *root)
 {
     while (root)
     {
@@ -18,11 +18,11 @@ void printLinekdList(LinkedList *root)
 
 int main()
 {
-    LinkedList *root, *second, *third;
+    node *root, *second, *third;
 
-    root = new LinkedList;
-    second = new LinkedList;
-    third = new LinkedList;
+    root = new node;
+    second = new node;
+    third = new node;
 
     root->data = 10;
     root->next = second;
