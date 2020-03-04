@@ -76,10 +76,27 @@ class Customers:
         self.address=address
         self.email=email
     # special method __repr() to display data associated with the object
-    def __repr__(self):
+    def __str__(self):
+    # def __repr__(self):
         return 'NAME: {},ADDRESS: {},EMAIL: {}'.format(self.name,self.address,self.email)
 
 # Instance of customers class using fake data
 customer1 = Customers(fake_data.name(),fake_data.address(),fake_data.email())
 print(customer1)
+
+
+# %%
+#generate list of customers class objects with fake data
+customer_list = []
+for i in range (20):
+    customer_list.append(Customers(fake_data.name(),fake_data.address(),fake_data.email()))
+
+
+# %%
+for i in customer_list:
+    print(i,'\n')
+
+
+# %%
+
 
