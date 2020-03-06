@@ -20,7 +20,7 @@ public class ForLoops {
         int n = 100;
         for (int i = 0; i <= n; i++) {
             sum += i;
-        }j
+        }
         System.out.println(sum);
 
         for (int i = 5; i > 0; i--) {
