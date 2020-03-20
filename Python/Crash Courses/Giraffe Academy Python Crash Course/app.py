@@ -32,6 +32,7 @@ print()
 
 # Strings in Python
 phrase = "Giraffe\'s Academy"
+#         0123  
 print(phrase + "is cool")
 print(phrase.lower())
 print(phrase.upper())
@@ -39,5 +40,12 @@ print(phrase.lower().islower())
 print(phrase.upper().isupper())
 print(len(phrase))
 print(phrase[0])
+print(phrase.index("G"))
+print(phrase.index("a"))
+print(phrase.index("Aca"))
+# print(phrase.index("z"))   ERROR
+print(phrase.replace("Academy","Institute"))
+
+
 
 
