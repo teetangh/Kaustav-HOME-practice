@@ -1,0 +1,17 @@
+"grandparent.h"
+#pragma once
+
+struct test
+{
+    int member;
+};
+
+===============
+"parent.h"
+#include "grandparent.h"
+
+================
+
+"child.cpp"
+#include "grandparent.h"
+#include "parent.h"
