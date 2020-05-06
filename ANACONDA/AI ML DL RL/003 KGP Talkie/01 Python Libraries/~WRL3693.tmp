@@ -98,31 +98,6 @@ duplicated () cmd.
 
 ![](media/870891e1f0fda407c1a8c602c26aa215.png)
 
-Checking for NULL values in the dataset
----------------------------------------
-
-1.  To check for NULL values in the dataset use the isnull() or isna() cmd
-
-2.  To perform sum use the isnull().sum() cmd.
-
-![](media/0a5449be9dec9a94873e7105b98aa52a.png)
-
-**Gathering Valuable insights into the dataset**
-
-1.  To get the total counts of each category use the value_counts () cmd
-
-2.  To check check for uniqueness in the data use the unique (). This would
-    return the number of unique values in a particular Pandas Series.
-
-![](media/413186ab8c69aae6873956877be13c9d.png)
-
-**The Correlation Matrix**
-
-The correlation matrix shows the relationship between various features and can
-be implemented using the corr () method.
-
-![](media/c40be401e929ca34998887a7e9721592.png)
-
 Bibliography
 ------------
 
