@@ -141,6 +141,77 @@ command and also passing the desired dtype parameter.
 ![](media/0a77622ad75fe1c33a1a9d60fe626ee1.png)
 
 A sequence of linearly or logarithmically spaced real numbers can be inserted
-between 2 limits using the linspace cmd() or logspace() cmd
+between 2 limits using the linspace cmd () or logspace() cmd
 
 ![](media/626d6065496a9212fd3f925f3d7d812f.png)
+
+**Constructing Matrices with all zeroes and ones as elements**
+
+These types of matrices can be constructed using the zeroes () and ones () cmd
+
+![](media/c5234fc0d993d0072fba6a5390a2cd7c.png)
+
+**Random Numbers**
+
+Numpy has a random module which can be used to generate random required number
+of floating numbers or integers within a given range.
+
+Random.seed() is a starting point in generating random numbers
+
+Random.randint() is used for generating random integers
+
+Random.rand() and Random.randn() are used for generating random real numbers
+between 0 and 1. Additionally while rand generates numbers randomly where as
+randn makes sure that the random makes sure that the numbers generated follow a
+Bell-shaped Normal Gaussian Distribution curve.
+
+![](media/e62443738986d09f1a34bd73563de441.png)
+
+![](media/1c43fd25537225ac6273beb7de2da53c.png)
+
+The following codes illustrate randomly generated real numbers using the random
+package module of Python:
+
+![](media/4b45082d5b120df614dd7dcf3a69b4cf.png)
+
+**Sorting a Numpy Array**
+
+The Numpy arrays can be sorted using the sort () cmd.
+
+In Numpy
+
+Axis =0 denotes Columns
+
+Axis =1denotes Numpy
+
+In Pandas
+
+Axis =0 denotes Rows
+
+Axis =1denotes columns
+
+![](media/e24c02b52103e05a48d603a6e98ab7b3.png)
+
+**Working with Numpy datetime64 submodule**
+
+Numpy has module called datetime64 to handle with dates
+
+![](media/33b8e2b93b7e8d501a6f384614038ff6.png)
+
+**Numpy Advanced Functions**
+
+There are several in-built advanced Numpy functions like vectorize () which
+makes handling multi-dimensional arrays easier.
+
+![](media/4261983eae560fbc8a47c33ff3fd709e.png)
+
+Bibliography
+------------
+
+1.  TakenMind Course [Udemy]
+
+2.  Google
+
+3.  Stack Overflow
+
+4.  Wikipedia
