@@ -9,7 +9,9 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
+
+# For Jupyter Notebook
+# get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 iris = datasets.load_iris()
