@@ -1,3 +1,0 @@
-This will be the first line of our file3 obj
-This will be the second line of our file3 obj
-This will be the last line of our file3 obj
