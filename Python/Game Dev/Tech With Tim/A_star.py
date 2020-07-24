@@ -103,10 +103,19 @@ class Spot:
     def __lt__(self, other):
         return False
 
+
 def heuristic(p1, p2):  # Heuristic Function(Using Manhattan Distance)
     x1, y1 = p1
     x2, y2 = p2
     return abs(x1 - x2) + abs(y1 - y2)
+
+
+def reconstruct_path(came_from, current, draw):
+    while current in came_from:
+        current = came_from[current]
+        current.make_path()
+        draw()
+
 
 def algorithm(draw, grid, start, end):
     count = 0
@@ -133,6 +142,10 @@ def algorithm(draw, grid, start, end):
             if event.type == pygame.QUIT:
                 pygame.quit()
 
+        # DEBUG
+        # print(open_set)
+        # print(open_set_hash)
+
         # getting only the node from [fscore , count , node]
         current = open_set.get()[2]
 
@@ -141,6 +154,8 @@ def algorithm(draw, grid, start, end):
 
         # If we are at the end we done
         if current == end:
+            reconstruct_path(came_from, end, draw)
+            end.make_end()
             return True
 
         # Or Else,keep finding
@@ -168,8 +183,6 @@ def algorithm(draw, grid, start, end):
             current.make_closed()
 
     return False
-
-
 
 
 def make_grid(rows, width):
@@ -232,9 +245,6 @@ def main(win, width):
             if event.type == pygame.QUIT:
                 run = False
 
-            if started:
-                continue
-
             if pygame.mouse.get_pressed()[0]:   # Left Mouse Button
                 pos = pygame.mouse.get_pos()
                 row, col = get_clicked_position(pos, ROWS, width)
@@ -262,7 +272,7 @@ def main(win, width):
                     end = None
 
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE and not started:
+                if event.key == pygame.K_SPACE and start and end:
                     for row in grid:
                         for spot in row:
                             spot.update_neighbors(grid)
@@ -270,6 +280,12 @@ def main(win, width):
                     # Passing a lamda function as parameter to the algorithm function
                     algorithm(lambda: draw(win, grid, ROWS, width),
                               grid, start, end)
+
+                # Pressing C resets game
+                if event.type == pygame.K_c:
+                    start = None
+                    end = None
+                    grid = make_grid(ROWS, width)
 
     pygame.quit()
 
