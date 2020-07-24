@@ -2,6 +2,12 @@ import pygame
 import math
 from Queue import PriorityQueue
 
+# try:
+#     import queue
+# except ImportError:
+#     import Queue as queue
+#     from queue import PriorityQueue
+
 WIDTH = 800
 WIN = pygame.display.set_mode((WIDTH, WIDTH))
 pygame.display.set_caption("A* Path Findig Algorithm")
@@ -27,7 +33,7 @@ class Spot:
         self.x = row*width
         self.y = col*width
         self.color = WHITE
-        self.neighbours = []
+        self.neighbors = []
         self.width = width
         self.total_rows = total_rows
 
@@ -74,29 +80,33 @@ class Spot:
         pygame.draw.rect(
             win, self.color, (self.x, self.y, self.width, self.width))
 
-    def update_neighbours(self, grid):
-        self.neighbours = []
+    def update_neighbors(self, grid):
+        self.neighbors = []
 
         # Can we move vertically down
         if self.row < self.total_rows - 1 and not grid[self.row + 1][self.col].is_barrier():
-            self.neighbours.append(grid[self.row + 1][self.col])
+            self.neighbors.append(grid[self.row + 1][self.col])
 
         # Can we move vertically up
         if self.row > 0 and not grid[self.row - 1][self.col].is_barrier():
-            self.neighbours.append(grid[self.row - 1][self.col])
+            self.neighbors.append(grid[self.row - 1][self.col])
 
         # Can we move horizontally right
         if self.col < self.total_rows - 1 and not grid[self.row][self.col + 1].is_barrier():
-            self.neighbours.append(grid[self.row][self.col + 1])
+            self.neighbors.append(grid[self.row][self.col + 1])
 
         # Can we move horizontally left
         if self.col < self.total_rows - 1 and not grid[self.row][self.col-1].is_barrier():
-            self.neighbours.append(grid[self.row][self.col-1])
+            self.neighbors.append(grid[self.row][self.col-1])
 
     # Less than
     def __lt__(self, other):
         return False
 
+def heuristic(p1, p2):  # Heuristic Function(Using Manhattan Distance)
+    x1, y1 = p1
+    x2, y2 = p2
+    return abs(x1 - x2) + abs(y1 - y2)
 
 def algorithm(draw, grid, start, end):
     count = 0
@@ -114,7 +124,7 @@ def algorithm(draw, grid, start, end):
     f_score = {spot: float("inf") for row in grid for spot in row}
 
     # Initally heurisitic function from start to finish
-    f_score[start] = h(start.get_pos(), end.get_pos())
+    f_score[start] = heuristic(start.get_pos(), end.get_pos())
 
     open_set_hash = {start}  # To see if something is in the open set
 
@@ -132,24 +142,24 @@ def algorithm(draw, grid, start, end):
         # If we are at the end we done
         if current == end:
             return True
-    
+
         # Or Else,keep finding
-        # Consider all the neighbours of the current node
-        for neighbor in current.neighbours:
+        # Consider all the neighbors of the current node
+        for neighbor in current.neighbors:
             # Calculate their temporary gscore
             temp_g_score = g_score[current] + 1
 
             # If we get a shorter gscore path , then update path
-            if temp_g_score < g_score[neighbor]:  
+            if temp_g_score < g_score[neighbor]:
                 came_from[neighbor] = current
                 g_score[neighbor] = temp_g_score
                 f_score[neighbor] = temp_g_score + \
-                    h(neighbor.get_pos(), end.get_pos())
+                    heuristic(neighbor.get_pos(), end.get_pos())
 
-                # Including the current nearest neighbour in the open set and syncing with open set hash
+                # Including the current nearest neighbor in the open set and syncing with open set hash
                 if neighbor not in open_set_hash:
-                    count += 1   
-                    open_set.put(f_score[neighbor], count, neighbor)
+                    count += 1
+                    open_set.put((f_score[neighbor], count, neighbor))
                     open_set_hash.add(neighbor)
                     neighbor.make_open()
         draw()
@@ -160,10 +170,6 @@ def algorithm(draw, grid, start, end):
     return False
 
 
-def h(p1, p2):  # Heuristic Function(Using Manhattan Distance)
-    x1, y1 = p1
-    x2, y2 = p2
-    return abs(x1 - x2) + abs(y1 - y2)
 
 
 def make_grid(rows, width):
@@ -259,7 +265,7 @@ def main(win, width):
                 if event.key == pygame.K_SPACE and not started:
                     for row in grid:
                         for spot in row:
-                            spot.update_neighbours(grid)
+                            spot.update_neighbors(grid)
 
                     # Passing a lamda function as parameter to the algorithm function
                     algorithm(lambda: draw(win, grid, ROWS, width),
