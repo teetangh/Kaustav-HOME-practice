@@ -32,3 +32,13 @@ pip3 list | grep package_name
 pip uninstall package_name
 pip3 uninstall package_name
 
+############# Testing it out#############
+>>> import packagekaustav
+>>> accha_object = packagekaustav.Accha()
+Constructor ban gaya
+>>> print(packagekaustav.Accha.__doc__)
+ This is the Accha class 
+ >>> accha_object.acchafunc(45)
+This is inside accha func
+45
+>>>
