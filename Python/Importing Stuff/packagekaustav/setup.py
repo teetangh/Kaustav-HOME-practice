@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="packagekaustav",
-    version="0.1",
+    version="0.4",
     description="This is code with kaustav package",
     long_description="This is a very very long description",
     packages=["packagekaustav"],
