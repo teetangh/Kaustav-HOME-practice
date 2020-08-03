@@ -1,14 +1,16 @@
-// fTOPIC: std::vector
+// TOPIC: std::set
 
 // NOTES:
-// 1. std::vector is a sequence container and also known as Dynamic Array or Array List.
-// 2. Its size can grow and shrink dynamically, and no need to provide size at compile time.
+// 1. std::set is an Associative Container that contains a sorted set of unique objects of type Key.
+// 2. It is usually implemented using Red-Black Tree.
+// 3. Insertion, Removal, Search have logarithmic complexity.
+// 4. If we want to store user defined data type in set then we will have to provide 
+//    compare function so that set can store them in sorted order.
+// 5. We can pass the order of sorting while constructing set object.
 
-// ELEMENT ACCESS
-// at(), [], front(), back(), data()
+// BOTTOM LINE:
+// It store unique elements and they are stored in sorted order (A/D)
 
-// MODIFIERS:
-// insert(), emplace(), push_back(), emplace_back(), pop_back(), resize(), swap(), erase(), clear()
 
 #include <iostream>
 #include <set>
