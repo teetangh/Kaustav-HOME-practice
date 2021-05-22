@@ -14,8 +14,7 @@ for ((i = 0; i < $n; i++)); do
     fi
 done
 
-if [ $flag -eq 1 ];
-then 
+if [ $flag -eq 1 ]; then
     echo "Not Palin"
 else
     echo "Palin"

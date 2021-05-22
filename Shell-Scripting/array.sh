@@ -6,4 +6,3 @@ echo "There are ${#teamnames[*]} teams"
 echo "There are ${teamnames[*]} teams"
 unset teamnames[1]
 echo "There are ${teamnames[*]} teams"
-
