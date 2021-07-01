@@ -1,0 +1,11 @@
+{
+  "java.project.sourcePaths": [
+    "Java/ArrayListDifference",
+    "Java/ListenableArrayList",
+    "Java/Multithreading/GFGexecutorService",
+    "Java/SocketProgramming/ObjectSerialization/src",
+    "Java/SocketProgramming/ChatServer",
+    "Java/SocketProgramming/GFGsingleServerClient",
+    "Java/SocketProgramming/GFGsingleServerMultipleClient"
+  ]
+}
