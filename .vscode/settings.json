@@ -5,7 +5,7 @@
     "Java/Multithreading/GFGexecutorService",
     "Java/SocketProgramming/ObjectSerialization/src",
     "Java/SocketProgramming/ChatServer",
-    "Java/SocketProgramming/GFGsingleServerClient",
-    "Java/SocketProgramming/GFGsingleServerMultipleClient"
+    "Java/SocketProgramming/MultiClient",
+    "Java/SocketProgramming/ThreadingMultiClientObjectSerialization"
   ]
 }
