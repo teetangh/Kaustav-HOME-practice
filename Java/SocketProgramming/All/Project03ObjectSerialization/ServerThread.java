@@ -1,7 +1,0 @@
-/**
- * ServerThread
- */
-public class ServerThread {
-
-    
-}
