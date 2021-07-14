@@ -50,7 +50,7 @@ public class Client {
                 }
 
             } catch (Exception e) {
-                // e.printStackTrace();
+                e.printStackTrace();
                 System.out.println("Client Reader Closed");
             }
             System.out.println("Client Reader Closed");
@@ -80,7 +80,7 @@ public class Client {
 
                 }
             } catch (Exception e) {
-                // e.printStackTrace();
+                e.printStackTrace();
                 System.out.println("Client Writer Closed");
             }
             System.out.println("Client Writer Closed");
